@@ -1,5 +1,9 @@
-import { ClassItem } from "../models/ClassItem"
+import { ClassItem } from "../models/ClassItem";
+
 export interface IDetailsPageWebpartState {
-    item : ClassItem;
+    title : string,
+    content : string,
+    AAtag : string,
+    TAtag : string,
     itemID : number;
 }

@@ -12,6 +12,8 @@ import * as strings from 'DetailsPageWebpartWebPartStrings';
 import DetailsPageWebpart from './components/DetailsPageWebpart';
 import { IDetailsPageWebpartProps } from './components/IDetailsPageWebpartProps';
 
+import pnp from "sp-pnp-js";
+
 export interface IDetailsPageWebpartWebPartProps {
   description: string;
 }
@@ -39,7 +41,14 @@ export default class DetailsPageWebpartWebPart extends BaseClientSideWebPart<IDe
   protected onInit(): Promise<void> {
     this._environmentMessage = this._getEnvironmentMessage();
 
-    return super.onInit();
+    // return super.onInit();
+    return super.onInit().then(_ => {
+
+      pnp.setup({
+        spfxContext: this.context
+      });
+  
+    });
   }
 
   private _getEnvironmentMessage(): string {
