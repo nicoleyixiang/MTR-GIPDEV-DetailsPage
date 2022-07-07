@@ -1,0 +1,16 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "version": "1.15.0",
+    "libraryName": "publications-details-page-wp",
+    "libraryId": "491c0bd1-293b-4374-89a0-bd913bfb1c5f",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "publications-details-page-wp",
+    "solutionShortDescription": "publications-details-page-wp description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

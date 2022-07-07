@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "publications-details-page-wp-client-side-solution",
+    "id": "491c0bd1-293b-4374-89a0-bd913bfb1c5f",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.15.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "publications-details-page-wp description"
+      },
+      "longDescription": {
+        "default": "publications-details-page-wp description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "publications-details-page-wp Feature",
+        "description": "The feature that activates elements of the publications-details-page-wp solution.",
+        "id": "26ac01df-e25c-48fe-ba85-d07f9c4b7410",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/publications-details-page-wp.sppkg"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "details-page-webpart-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/detailsPageWebpart/DetailsPageWebpartWebPart.js",
+          "manifest": "./src/webparts/detailsPageWebpart/DetailsPageWebpartWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "DetailsPageWebpartWebPartStrings": "lib/webparts/detailsPageWebpart/loc/{locale}.js"
+  }
+}
