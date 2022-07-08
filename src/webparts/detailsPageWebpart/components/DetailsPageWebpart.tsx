@@ -1,20 +1,10 @@
 import * as React from 'react';
-
 import { IDetailsPageWebpartProps } from './IDetailsPageWebpartProps';
 import { IDetailsPageWebpartState } from './IDetailsPageWebparState';
-
 import ReactHtmlParser from 'react-html-parser';
 import pnp from 'sp-pnp-js';
-
-import { useLocation } from "react-router-dom";
-
 import './styles.css';
-
-// import Button from 'react-bootstrap/Button';
-
 import { ClassItem } from '../models/ClassItem';
-
-import { escape } from '@microsoft/sp-lodash-subset';
 
 export default class DetailsPageWebpart extends React.Component<IDetailsPageWebpartProps, IDetailsPageWebpartState> {
 
@@ -85,7 +75,10 @@ export default class DetailsPageWebpart extends React.Component<IDetailsPageWebp
   }
 
   private getAATagName(tagID) {
-    pnp.sp.web.lists.getByTitle('SystemParameter').items.filter("Title eq 'ApplicationArea' and 'Application").getById(tagID).get().then
+    pnp.sp.web.lists.getByTitle('SystemParameter').items
+    .filter("Title eq 'ApplicationArea' and 'Application")
+    .getById(tagID)
+    .get().then
       ((Response) => {
         console.log(Response);
         this.setState({ AAtag: Response.Value });
@@ -93,7 +86,10 @@ export default class DetailsPageWebpart extends React.Component<IDetailsPageWebp
   }
 
   private getTATagName(tagID) {
-    pnp.sp.web.lists.getByTitle('SystemParameter').items.filter("Title eq 'RelatedTechnology'").getById(tagID).get().then
+    pnp.sp.web.lists.getByTitle('SystemParameter').items
+    .filter("Title eq 'RelatedTechnology'")
+    .getById(tagID)
+    .get().then
       ((Response) => {
         console.log(Response);
         this.setState({ TAtag: Response.Value });
