@@ -58,7 +58,7 @@ export default class DetailsPageWebpart extends React.Component<IDetailsPageWebp
                   {ReactHtmlParser(this.state.content)}
                 </div>
                 <div className="footer__content">
-                  <a href="https://waion365.sharepoint.com/sites/MTR-GIPDEV" className="back__button">BACK TO LIST</a>
+                  <a href="javascript:history.back()" className="back__button">BACK TO LIST</a>
                 </div>
               </div>
             </div>
@@ -85,16 +85,18 @@ export default class DetailsPageWebpart extends React.Component<IDetailsPageWebp
   }
 
   private getAATagName(tagID) {
-    pnp.sp.web.lists.getByTitle("AATags").items.getById(tagID).get().then
+    pnp.sp.web.lists.getByTitle('SystemParameter').items.filter("Title eq 'ApplicationArea'").getById(tagID).get().then
       ((Response) => {
-        this.setState({ AAtag: Response });
+        console.log(Response.Value);
+        this.setState({ AAtag: Response.Value });
       });
   }
 
   private getTATagName(tagID) {
-    pnp.sp.web.lists.getByTitle("TATags").items.getById(tagID).get().then
+    pnp.sp.web.lists.getByTitle('SystemParameter').items.filter("Title eq 'ApplicationArea'").getById(tagID).get().then
       ((Response) => {
-        this.setState({ TAtag: Response });
+        console.log(Response.Value);
+        this.setState({ TAtag: Response.Value });
       });
   }
 }
