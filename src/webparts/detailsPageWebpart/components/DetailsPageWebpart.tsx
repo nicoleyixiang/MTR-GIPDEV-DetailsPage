@@ -79,23 +79,23 @@ export default class DetailsPageWebpart extends React.Component<IDetailsPageWebp
           title: newItem.Title,
           content: newItem.Content_EN
         });
-        this.getAATagName(newItem.LOOKUPId);
-        this.getTATagName(newItem.LOOKUP2Id);
+        this.getAATagName(newItem.ApplicationArea_ENId);
+        this.getTATagName(newItem.RelatedTechnology_ENId);
       });
   }
 
   private getAATagName(tagID) {
-    pnp.sp.web.lists.getByTitle('SystemParameter').items.filter("Title eq 'ApplicationArea'").getById(tagID).get().then
+    pnp.sp.web.lists.getByTitle('SystemParameter').items.filter("Title eq 'ApplicationArea' and 'Application").getById(tagID).get().then
       ((Response) => {
-        console.log(Response.Value);
+        console.log(Response);
         this.setState({ AAtag: Response.Value });
       });
   }
 
   private getTATagName(tagID) {
-    pnp.sp.web.lists.getByTitle('SystemParameter').items.filter("Title eq 'ApplicationArea'").getById(tagID).get().then
+    pnp.sp.web.lists.getByTitle('SystemParameter').items.filter("Title eq 'RelatedTechnology'").getById(tagID).get().then
       ((Response) => {
-        console.log(Response.Value);
+        console.log(Response);
         this.setState({ TAtag: Response.Value });
       });
   }
