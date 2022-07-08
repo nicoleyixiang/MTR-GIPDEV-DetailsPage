@@ -1,13 +1,17 @@
+.allitems {
+    align-self: center;
+}
+
 .page__container {
     display: flex;
     flex-direction: column;
     width: 80%;
     row-gap: 10px;
-    justify-self: center;
-    justify-items: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.tag__container {
+.tag__banner {
     display: flex;
     position: relative;
     justify-content: flex-end;
@@ -40,8 +44,13 @@
 .page__content {
     justify-self: center;
     padding: 20px;
-    width: 80%;
-    align-self: center;
+    width: 100%;
+    justify-self: center;
+}
+
+.main__content {
+    max-width: inherit;
+    overflow-wrap: break-word;
 }
 
 .main__title {
@@ -52,6 +61,10 @@
     /* padding: 30px 0px; */
 }
 
+.footer__content{
+    justify-self: center;
+}
+
 .back__button {
     background-color: rgb(41,89,123);
     color: white;
@@ -60,12 +73,46 @@
     left: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     border-color: rgb(41,89,123);
+    border-width: thin;
     font-size: 1.2em;
     text-decoration: none;
+    border-style: solid;
 }
 
 a.back__button {
     -webkit-appearance: button;
     -moz-appearance: button;
     appearance: button;
+}
+
+a.back__button:hover {
+    color: rgb(41,89,123);
+    background-color: white;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 900px) {
+
+    .tag__banner {
+        width: 100%;
+    }
+
+    .strip {
+        width: 0;
+        color: white;
+    }
+
+    .AAtag {
+        width: 50%;
+        height: fit-content;
+        text-align: center;
+        overflow-wrap: break-word;
+    }
+
+    .TAtag {
+        width: 50%;
+        height: fit-content;
+        overflow-wrap: break-word;
+        text-align: center;
+    }
 }

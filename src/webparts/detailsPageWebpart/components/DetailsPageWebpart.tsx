@@ -35,18 +35,17 @@ export default class DetailsPageWebpart extends React.Component<IDetailsPageWebp
     const idNumber = urlParams.get("itemid");
     console.log(idNumber);
     this.getListDetails(idNumber);
-
+   
     this.forceUpdate();
   }
 
   public render(): React.ReactElement<IDetailsPageWebpartProps> {
-
     return (
       <main>
         {
-          <section>
+          <div className="allitems">
             <div className="page__container">
-              <div className="tag__container">
+              <div className="tag__banner">
                 <div className="strip"></div>
                 <div className="AAtag">{this.state.AAtag}</div>
                 <div className="TAtag">{this.state.TAtag}</div>
@@ -63,7 +62,7 @@ export default class DetailsPageWebpart extends React.Component<IDetailsPageWebp
                 </div>
               </div>
             </div>
-          </section>
+          </div>
         }
       </main>
     );
