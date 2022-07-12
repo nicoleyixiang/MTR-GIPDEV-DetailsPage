@@ -5,7 +5,7 @@ import ReactHtmlParser from 'react-html-parser';
 import pnp from 'sp-pnp-js';
 import './styles.css';
 import { ClassItem } from '../models/ClassItem';
-
+ 
 export default class DetailsPageWebpart extends React.Component<IDetailsPageWebpartProps, IDetailsPageWebpartState> {
 
   constructor(props: IDetailsPageWebpartProps) {
