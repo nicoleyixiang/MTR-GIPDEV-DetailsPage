@@ -17,11 +17,17 @@
     justify-content: flex-end;
     flex-direction: row;
     justify-self: center;
+    flex-wrap: wrap;
 }
 
 .strip {
+    /* background-color: rgb(41,89,123); */
+    /* width: 100%; */
     background-color: rgb(41,89,123);
-    flex-grow: 1;
+    z-index: 1;
+    width: 100%;
+    /* flex-basis: 100%; */
+    /* flex-grow: 1; */
     height: 5px;
 }
 
@@ -31,6 +37,8 @@
     width: fit-content;
     padding: 8px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-right: 5px;
+    z-index: 2;
 }
 
 .TAtag {
@@ -39,6 +47,7 @@
     width: fit-content;
     padding: 8px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    z-index: 2;
 }
 
 .page__content {

@@ -17,7 +17,7 @@ export default class DetailsPageWebpart extends React.Component<IDetailsPageWebp
       AAtag: "",
       TAtag: "",
       itemID: 0
-    };
+    }; 
   }
 
   public componentDidMount(): void {
