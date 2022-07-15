@@ -21,11 +21,12 @@ export default class DetailsPageWebpart extends React.Component<IDetailsPageWebp
   }
 
   public componentDidMount(): void {
+    // Retrieving information from QueryString parameters 
     const urlParams = new URLSearchParams(window.location.search);
     const idNumber = urlParams.get("itemid");
     console.log(idNumber);
+
     this.getListDetails(idNumber);
-   
     this.forceUpdate();
   }
 
@@ -59,6 +60,8 @@ export default class DetailsPageWebpart extends React.Component<IDetailsPageWebp
   }
 
   /* Controller Methods */
+
+  // Retrieving items from the SP list 
   private getListDetails(itemID) {
     pnp.sp.web.lists.getByTitle("Publication").items.getById(itemID).get().then
       ((Response) => {
@@ -74,6 +77,7 @@ export default class DetailsPageWebpart extends React.Component<IDetailsPageWebp
       });
   }
 
+  // Get the names of the tags based on the tag ID 
   private getAATagName(tagID) {
     pnp.sp.web.lists.getByTitle('SystemParameter').items
     .filter("Title eq 'ApplicationArea' and 'Application")
