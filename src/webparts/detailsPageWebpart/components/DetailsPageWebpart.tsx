@@ -5,7 +5,7 @@ import ReactHtmlParser from 'react-html-parser';
 import pnp from 'sp-pnp-js';
 import './styles.css';
 import { ClassItem } from '../models/ClassItem';
- 
+
 export default class DetailsPageWebpart extends React.Component<IDetailsPageWebpartProps, IDetailsPageWebpartState> {
 
   constructor(props: IDetailsPageWebpartProps) {
@@ -48,7 +48,7 @@ export default class DetailsPageWebpart extends React.Component<IDetailsPageWebp
                   {ReactHtmlParser(this.state.content)}
                 </div>
                 <div className="footer__content">
-                  <a href="javascript:history.back()" className="back__button">BACK TO LIST</a>
+                  <a href="javascript:history.back()" className="back__button">BACK</a>
                 </div>
               </div>
             </div>
