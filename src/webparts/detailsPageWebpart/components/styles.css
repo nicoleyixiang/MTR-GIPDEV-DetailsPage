@@ -9,6 +9,7 @@
     row-gap: 10px;
     margin-left: auto;
     margin-right: auto;
+    background-color: white;
 }
 
 .tag__banner {
@@ -59,7 +60,18 @@
 
 .main__content {
     max-width: inherit;
+    white-space: normal;
+    overflow-x: hidden;
     overflow-wrap: break-word;
+    padding: 0;
+}
+
+.rich__text {
+    max-width: inherit;
+    white-space: normal;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    padding: 0;
 }
 
 .main__title {

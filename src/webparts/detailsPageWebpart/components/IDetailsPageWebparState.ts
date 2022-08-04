@@ -5,5 +5,6 @@ export interface IDetailsPageWebpartState {
     content : string,
     AAtag : string,
     TAtag : string,
-    itemID : number;
+    itemID : number,
+    isChinese : boolean
 }

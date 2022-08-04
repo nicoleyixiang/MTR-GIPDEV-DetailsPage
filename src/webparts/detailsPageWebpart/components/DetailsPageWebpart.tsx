@@ -2,6 +2,9 @@ import * as React from 'react';
 import { IDetailsPageWebpartProps } from './IDetailsPageWebpartProps';
 import { IDetailsPageWebpartState } from './IDetailsPageWebparState';
 import ReactHtmlParser from 'react-html-parser';
+
+import { RichText } from "@pnp/spfx-controls-react/lib/RichText";
+
 import pnp from 'sp-pnp-js';
 import './styles.css';
 import { ClassItem } from '../models/ClassItem';
@@ -16,7 +19,8 @@ export default class DetailsPageWebpart extends React.Component<IDetailsPageWebp
       content: "",
       AAtag: "",
       TAtag: "",
-      itemID: 0
+      itemID: 0,
+      isChinese : false
     }; 
   }
 
@@ -46,10 +50,16 @@ export default class DetailsPageWebpart extends React.Component<IDetailsPageWebp
                   {this.state.title}
                 </div>
                 <div className="main__content">
-                  {ReactHtmlParser(this.state.content)}
+                  {/* {ReactHtmlParser(this.state.content)} */}
+                  <RichText 
+                  className="rich__text"
+                  value={this.state.content}
+                  isEditMode={false}
+                  // onChange={(text)=>this.onTextChange(text)}
+                  />
                 </div>
                 <div className="footer__content">
-                  <a href="javascript:history.back()" className="back__button">BACK</a>
+                  <a href="javascript:history.back()" className="back__button">{this.state.isChinese ? "返回" : "BACK"}</a>
                 </div>
               </div>
             </div>
@@ -63,29 +73,44 @@ export default class DetailsPageWebpart extends React.Component<IDetailsPageWebp
 
   // Retrieving items from the SP list 
   private getListDetails(itemID) {
+    const url = window.location.href;
+    if (url.search("/CH/") !== -1) {
+      this.setState({ isChinese : true });
+    }
+
     pnp.sp.web.lists.getByTitle("Publication").items.getById(itemID).get().then
       ((Response) => {
         console.log(Response);
         let newItem = new ClassItem(Response);
-        console.log(newItem);
-        this.setState({
-          title: newItem.Title,
-          content: newItem.Content_EN
-        });
-        this.getAATagName(newItem.ApplicationArea_ENId);
-        this.getTATagName(newItem.RelatedTechnology_ENId);
+        
+        if (this.state.isChinese) {
+          this.setState({
+            title : Response.Title_CH,
+            content : Response.Content_CH
+          })
+        }
+        else {
+          this.setState({
+            title: Response.Title,
+            content: Response.Content_EN
+          });
+        }
+        
+        this.getAATagName(Response.ApplicationArea_ENId);
+        this.getTATagName(Response.RelatedTechnology_ENId);
       });
   }
 
   // Get the names of the tags based on the tag ID 
   private getAATagName(tagID) {
     pnp.sp.web.lists.getByTitle('SystemParameter').items
-    .filter("Title eq 'ApplicationArea' and 'Application")
+    .filter("Title eq 'ApplicationArea'")
     .getById(tagID)
     .get().then
       ((Response) => {
         console.log(Response);
-        this.setState({ AAtag: Response.Value });
+        const val = this.state.isChinese ? Response.Value_CH : Response.Value
+        this.setState({ AAtag: val });
       });
   }
 
@@ -96,7 +121,8 @@ export default class DetailsPageWebpart extends React.Component<IDetailsPageWebp
     .get().then
       ((Response) => {
         console.log(Response);
-        this.setState({ TAtag: Response.Value });
+        const val = this.state.isChinese ? Response.Value_CH : Response.Value
+        this.setState({ TAtag: val });
       });
   }
 }

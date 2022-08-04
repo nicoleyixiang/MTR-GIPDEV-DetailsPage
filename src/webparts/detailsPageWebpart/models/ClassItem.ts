@@ -2,7 +2,9 @@ import { ISPItem } from "./ISPItem";
 
 export class ClassItem{
     public Title: string;
+    public Title_CH : string;
     public Content_EN: string;
+    public Content_CH : string;
     public imageServerURL: string;
     public imageRelativeURL: number; 
     public RollupImage: string;
