@@ -18,32 +18,25 @@
     justify-content: flex-end;
     flex-direction: row;
     justify-self: center;
-    /* flex-wrap: wrap; */
 }
 
 .strip {
-    /* background-color: rgb(41,89,123); */
-    /* width: 100%; */
-    background-color: rgb(41,89,123);
-    /* z-index: 1; */
-    /* width: 100%; */
-    /* flex-basis: 100%; */
+    background-color: rgb(71,143,206);
     flex-grow: 1;
     height: 5px;
 }
 
 .AAtag {
-    background-color: rgb(41,89,123);
+    background-color: rgb(71,143,206);
     color: white;
     width: fit-content;
     padding: 8px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    /* margin-right: 5px; */
     z-index: 2;
 }
 
 .TAtag {
-    background-color: forestgreen;
+    background-color: rgb(61,131,59);
     color: white;
     width: fit-content;
     padding: 8px;
@@ -86,13 +79,13 @@
 }
 
 .back__button {
-    background-color: rgb(41,89,123);
+    background-color: rgb(231, 46, 150);
     color: white;
     padding: 10px;
     bottom: 30px;
     left: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    border-color: rgb(41,89,123);
+    border-color: rgb(231, 46, 150);
     border-width: thin;
     font-size: 1.2em;
     text-decoration: none;
@@ -106,7 +99,7 @@ a.back__button {
 }
 
 a.back__button:hover {
-    color: rgb(41,89,123);
+    color: rgb(231, 46, 150);
     background-color: white;
     text-decoration: none;
 }

@@ -1,10 +1,7 @@
 import * as React from 'react';
 import { IDetailsPageWebpartProps } from './IDetailsPageWebpartProps';
 import { IDetailsPageWebpartState } from './IDetailsPageWebparState';
-import ReactHtmlParser from 'react-html-parser';
-
 import { RichText } from "@pnp/spfx-controls-react/lib/RichText";
-
 import pnp from 'sp-pnp-js';
 import './styles.css';
 import { ClassItem } from '../models/ClassItem';
@@ -28,8 +25,6 @@ export default class DetailsPageWebpart extends React.Component<IDetailsPageWebp
     // Retrieving information from QueryString parameters 
     const urlParams = new URLSearchParams(window.location.search);
     const idNumber = urlParams.get("itemid");
-    console.log(idNumber);
-
     this.getListDetails(idNumber);
     this.forceUpdate();
   }
@@ -50,12 +45,10 @@ export default class DetailsPageWebpart extends React.Component<IDetailsPageWebp
                   {this.state.title}
                 </div>
                 <div className="main__content">
-                  {/* {ReactHtmlParser(this.state.content)} */}
                   <RichText 
                   className="rich__text"
                   value={this.state.content}
                   isEditMode={false}
-                  // onChange={(text)=>this.onTextChange(text)}
                   />
                 </div>
                 <div className="footer__content">
@@ -69,8 +62,6 @@ export default class DetailsPageWebpart extends React.Component<IDetailsPageWebp
     );
   }
 
-  /* Controller Methods */
-
   // Retrieving items from the SP list 
   private getListDetails(itemID) {
     const url = window.location.href;
@@ -80,9 +71,7 @@ export default class DetailsPageWebpart extends React.Component<IDetailsPageWebp
 
     pnp.sp.web.lists.getByTitle("Publication").items.getById(itemID).get().then
       ((Response) => {
-        console.log(Response);
-        let newItem = new ClassItem(Response);
-        
+
         if (this.state.isChinese) {
           this.setState({
             title : Response.Title_CH,
